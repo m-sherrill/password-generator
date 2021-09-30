@@ -21,7 +21,7 @@ function generatePassword() {
 
 
   // PassLength Variable, parseInt, turns the answer into a number and passLength variable will be the user input
-  var passLength = parseInt(prompt("How many characters would you like your password? Choose between 8 and 128"))
+  var passLength = prompt("How many characters would you like in your password? Choice must be no less than 8 and no more than 128.")
     
   // Inserting a while loop to make sure the user picks a number between 8 and 128
     while(true){ 
@@ -36,9 +36,9 @@ function generatePassword() {
   }
 
   // Confirm Boxes
-  var confirmNumber = confirm("Will this contain numbers?")
-  var confirmUpper = confirm("Will this contain Uppercase letters?")
-  var confirmLower = confirm("Will this contain Lowercase letters?")
+  var confirmNumber = confirm("Would you like your password to contain numbers?")
+  var confirmUpper = confirm("Would you like your password to contain Uppercase letters?")
+  var confirmLower = confirm("Would you like your password to contain Lowercase letters?")
         
   // if/else statements to compare the data provided from the confirm boxes
     if (!confirmNumber && !confirmUpper && !confirmLower) { // no options selected
