@@ -15,10 +15,9 @@ function writePassword() {
 function generatePassword() {
 
   var confirmNumber
-  var confirmChoices
   var confirmUpper
   var confirmLower
-  var passLength
+  var confirmChoices
 
   // Arrays
   number = [1, 2, 3, 4, 5, 6, 7, 8, 6]
@@ -26,22 +25,27 @@ function generatePassword() {
   upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "X"]
 
 
-    // parseInt, turns the answer into a number and passLength variable will be the user input
+  // PassLength Variable, parseInt, turns the answer into a number and passLength variable will be the user input
   passLength = parseInt(prompt("How many characters would you like your password? Choose between 8 and 128"))
     
-    while(true){ //loop runs until broken
+  // Inserting a while loop to make sure the user picks a number between 8 and 128
+    while(true){ 
       if(!passLength) {
           break
-          alert("Please enter a value");
-      } else (passLength < 8 || passLength > 128) { // number entered is <= 8 or >= 128
+          alert("Please enter a value")
+      } else if (passLength < 8 || passLength > 128) { // a stop in case they enter numbers outside the options
           passLength = parseInt(prompt("Please select a number between 8 and 128"))
-      } 
+      } else {
+          break // ending the loop if they insert a valid number choice 
+      }
   }
 
+  // Confirm Boxes
   confirmNumber = confirm("Will this contain numbers?")
   confirmUpper = confirm("Will this contain Uppercase letters?")
   confirmLower = confirm("Will this contain Lowercase letters?")
         
+  // if/else statements to compare the data provided from the confirm boxes
     if (!confirmNumber && !confirmUpper && !confirmLower) { // no options selected
       alert("You must select at least one option")
     } else if (confirmNumber && confirmUpper && confirmLower) { // all options selected
@@ -58,15 +62,15 @@ function generatePassword() {
       confirmChoices = upper
     } else if (confirmLower) { // only lower case selected
       confirmChoices = lower
-    }
+    } 
 
     // empty array for array manipulation 
     var pw = []
 
 
     for (var i = 0; i < passLength; i++) { // sets the length of the new array
-      var pickChoices = confirmChoices[Math.floor(Math.random() * confirmChoices.length)] // sets a new variable generating randomly from the confirmChoice
-      pw.push(pickChoices) // combines the coices from the prompts together
+      var combinedChoices = confirmChoices[Math.floor(Math.random() * confirmChoices.length)] // sets a new variable generating randomly from the confirmChoice
+      pw.push(combinedChoices) // combines the coices from the prompts together
     }
 
 
