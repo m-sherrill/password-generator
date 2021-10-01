@@ -26,14 +26,16 @@ function generatePassword() {
   // Inserting a while loop to make sure the user picks a number between 8 and 128
     while(true){ 
       if(!passLength) {
-          break
           alert("Please enter a value")
+          passLength = parseInt(prompt("Please select a number between 8 and 128"))
       } else if (passLength < 8 || passLength > 128) { // a stop in case they enter numbers outside the options
           passLength = parseInt(prompt("Please select a number between 8 and 128"))
       } else {
-          break // ending the loop if they insert a valid number choice 
+         break // ending the loop if they insert a valid number choice 
       }
   }
+
+  console.log(passLength)
 
   // Confirm Boxes
   var confirmNumber = confirm("Would you like your password to contain numbers?")
@@ -42,7 +44,16 @@ function generatePassword() {
         
   // if/else statements to compare the data provided from the confirm boxes
     if (!confirmNumber && !confirmUpper && !confirmLower) { // no options selected
-      alert("You must select at least one option")
+      while(true){
+        if(!confirmNumber && !confirmUpper && !confirmLower) {
+          alert("Please Select at least one option")
+          var confirmNumber = confirm("Would you like your password to contain numbers?")
+          var confirmUpper = confirm("Would you like your password to contain Uppercase letters?")
+          var confirmLower = confirm("Would you like your password to contain Lowercase letters?")        
+        } else {
+          break
+        }
+      }
     } else if (confirmNumber && confirmUpper && confirmLower) { // all options selected
       confirmChoices = number.concat(upper, lower)
     } else if (confirmNumber && confirmLower) { // only numbers and lowercase selected
@@ -75,15 +86,3 @@ function generatePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword)
-
-// if(!passLength) { // no value entered
-    //   alert("Please enter a value")
-    // } else if (passLength < 8 || passLength > 128) { // number entered is <= 8 or >= 128
-    //   passLength = parseInt(prompt("Please select a number between 8 and 128"))
-    // } else if (passLength > 8 || passLength < 128) {
-    //     // after the user answers prompt, it continues to confirm what types of characters to add
-    //     confirmNumber = confirm("Will this contain numbers?")
-    //     confirmUpper = confirm("Will this contain Uppercase letters?")
-    //     confirmLower = confirm("Will this contain Lowercase letters?")
-    // } 
-      // parameters of choices
