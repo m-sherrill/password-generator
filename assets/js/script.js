@@ -28,9 +28,9 @@ function generatePassword() {
   while (true) {
     if (!passLength) {
       alert("You must enter a valid number")
-      passLength = prompt("Please select a number between 8 and 128")
+      passLength = prompt("Please select a number between 8 and 128.")
     } else if (passLength < 8 || passLength > 128) { // a stop in case they enter numbers outside the options
-      passLength = prompt("Please select a number between 8 and 128")
+      passLength = prompt("Please select a number between 8 and 128.")
     } else {
       break // ending the loop if they insert a valid number choice 
     }
@@ -39,8 +39,8 @@ function generatePassword() {
   // Confirm Boxes
   var confirmCharacter = confirm("Would you like your password to contain special characters?")
   var confirmNumber = confirm("Would you like your password to contain numbers?")
-  var confirmUpper = confirm("Would you like your password to contain Uppercase letters?")
-  var confirmLower = confirm("Would you like your password to contain Lowercase letters?")
+  var confirmUpper = confirm("Would you like your password to contain uppercase letters?")
+  var confirmLower = confirm("Would you like your password to contain lowercase letters?")
 
   // if/else statements to compare the data provided from the confirm boxes
   if (!confirmNumber && !confirmUpper && !confirmLower && !confirmCharacter) { // no options selected
@@ -49,8 +49,8 @@ function generatePassword() {
         alert("Please Select at least one option")
         confirmCharacter = confirm("Would you like your password to contain special characters?")
         confirmNumber = confirm("Would you like your password to contain numbers?")
-        confirmUpper = confirm("Would you like your password to contain Uppercase letters?")
-        confirmLower = confirm("Would you like your password to contain Lowercase letters?")
+        confirmUpper = confirm("Would you like your password to contain uppercase letters?")
+        confirmLower = confirm("Would you like your password to contain lowercase letters?")
       } else {
         break
       }
@@ -81,7 +81,7 @@ function generatePassword() {
     confirmChoices = upper.concat(character)
   } else if (confirmCharacter && confirmLower) {
     confirmChoices = character.concat(lower)
-    
+
     // One options selected
   } else if (confirmNumber) {
     confirmChoices = number
