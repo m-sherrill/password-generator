@@ -11,7 +11,6 @@ function writePassword() {
 }
 
 // GeneratePassword function
-
 function generatePassword() {
 
   // Arrays
@@ -21,21 +20,22 @@ function generatePassword() {
 
 
   // PassLength Variable, parseInt, turns the answer into a number and passLength variable will be the user input
-  var passLength = prompt("How many characters would you like in your password? Choice must be no less than 8 and no more than 128.")
+  var passLength = prompt("How many characters would you like? Select between 8 and 128.")
+
     
   // Inserting a while loop to make sure the user picks a number between 8 and 128
+
     while(true){ 
       if(!passLength) {
-          alert("Please enter a value")
-          passLength = parseInt(prompt("Please select a number between 8 and 128"))
+         alert("You must enter a valid number")
+         passLength = prompt("Please select a number between 8 and 128")
+        //  passLength = prompt("Please select a number between 8 and 128")
       } else if (passLength < 8 || passLength > 128) { // a stop in case they enter numbers outside the options
-          passLength = parseInt(prompt("Please select a number between 8 and 128"))
+          passLength = prompt("Please select a number between 8 and 128")
       } else {
          break // ending the loop if they insert a valid number choice 
       }
   }
-
-  console.log(passLength)
 
   // Confirm Boxes
   var confirmNumber = confirm("Would you like your password to contain numbers?")
@@ -47,9 +47,9 @@ function generatePassword() {
       while(true){
         if(!confirmNumber && !confirmUpper && !confirmLower) {
           alert("Please Select at least one option")
-          var confirmNumber = confirm("Would you like your password to contain numbers?")
-          var confirmUpper = confirm("Would you like your password to contain Uppercase letters?")
-          var confirmLower = confirm("Would you like your password to contain Lowercase letters?")        
+          confirmNumber = confirm("Would you like your password to contain numbers?")
+          confirmUpper = confirm("Would you like your password to contain Uppercase letters?")
+          confirmLower = confirm("Would you like your password to contain Lowercase letters?")        
         } else {
           break
         }
@@ -86,3 +86,6 @@ function generatePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword)
+
+
+
