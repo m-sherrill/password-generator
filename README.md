@@ -19,11 +19,11 @@ To create a password generator where the user can pick a number between 8 and 12
 
 ### Application before Password
 
-![Screenshot of application](/assets/images/screenshot.png)
+![Screenshot of application](./assets/images/screenshot.png)
 
 ### Application after Password
 
-![This is an image](/assets/images/generatedpassword.png)
+![Screenshot after application](./assets/images/generatedpassword.png)
 
 ## Project Notes
 
